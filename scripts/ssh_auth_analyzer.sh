@@ -50,3 +50,8 @@ echo -e "$(
         print "[?] Suspicious: " $2 " (" $1 " failed attempts)" 
 }'
 )"
+
+echo "==============================================
+Report generated on: $(date)
+Log File : $1
+==============================================" >>./reports/ssh_auth_report.txt

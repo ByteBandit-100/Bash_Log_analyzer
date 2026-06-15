@@ -19,3 +19,7 @@ Failed attempts : 10
 ------- BRUTE FORCE ALERTS 
 [?] Suspicious: 45.134.26.8 (5 failed attempts)
 [?] Suspicious: 203.0.113.50 (5 failed attempts)
+==============================================
+Report generated on: Mon Jun 15 14:59:52 UTC 2026
+Log File : logs/auth.log
+==============================================
