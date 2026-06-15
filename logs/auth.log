@@ -5,7 +5,6 @@ Jun 07 09:05:15 server sshd[1003]: Failed password for root from 203.0.113.50 po
 Jun 07 09:05:18 server sshd[1004]: Failed password for root from 203.0.113.50 port 54323 ssh2
 Jun 07 09:05:20 server sshd[1005]: Failed password for root from 203.0.113.50 port 54324 ssh2
 Jun 07 09:05:23 server sshd[1006]: Failed password for root from 203.0.113.50 port 54325 ssh2
-
 Jun 07 09:06:11 server sshd[1007]: Invalid user admin from 198.51.100.20 port 51001
 Jun 07 09:06:15 server sshd[1008]: Invalid user administrator from 198.51.100.20 port 51002
 Jun 07 09:06:18 server sshd[1009]: Invalid user test from 198.51.100.20 port 51003
