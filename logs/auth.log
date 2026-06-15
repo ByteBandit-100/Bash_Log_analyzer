@@ -1,0 +1,32 @@
+Jun 07 09:00:01 server sshd[1001]: Accepted password for john from 192.168.1.10 port 52144 ssh2
+
+Jun 07 09:05:12 server sshd[1002]: Failed password for root from 203.0.113.50 port 54321 ssh2
+Jun 07 09:05:15 server sshd[1003]: Failed password for root from 203.0.113.50 port 54322 ssh2
+Jun 07 09:05:18 server sshd[1004]: Failed password for root from 203.0.113.50 port 54323 ssh2
+Jun 07 09:05:20 server sshd[1005]: Failed password for root from 203.0.113.50 port 54324 ssh2
+Jun 07 09:05:23 server sshd[1006]: Failed password for root from 203.0.113.50 port 54325 ssh2
+
+Jun 07 09:06:11 server sshd[1007]: Invalid user admin from 198.51.100.20 port 51001
+Jun 07 09:06:15 server sshd[1008]: Invalid user administrator from 198.51.100.20 port 51002
+Jun 07 09:06:18 server sshd[1009]: Invalid user test from 198.51.100.20 port 51003
+
+Jun 07 09:10:05 server sudo: john : TTY=pts/0 ; PWD=/home/john ; USER=root ; COMMAND=/usr/bin/apt update
+Jun 07 09:10:30 server sudo: john : TTY=pts/0 ; PWD=/home/john ; USER=root ; COMMAND=/usr/bin/systemctl restart apache2
+
+Jun 07 09:12:40 server useradd[1200]: new user: name=developer, UID=1002, GID=1002, home=/home/developer
+
+Jun 07 09:15:01 server sshd[1012]: Accepted password for developer from 192.168.1.25 port 55010 ssh2
+
+Jun 07 09:18:20 server passwd[1300]: password changed for developer
+
+Jun 07 09:20:05 server sshd[1013]: Failed password for root from 45.134.26.8 port 60001 ssh2
+Jun 07 09:20:08 server sshd[1014]: Failed password for root from 45.134.26.8 port 60002 ssh2
+Jun 07 09:20:10 server sshd[1015]: Failed password for root from 45.134.26.8 port 60003 ssh2
+Jun 07 09:20:12 server sshd[1016]: Failed password for root from 45.134.26.8 port 60004 ssh2
+Jun 07 09:20:15 server sshd[1017]: Failed password for root from 45.134.26.8 port 60005 ssh2
+
+Jun 07 09:30:15 server sudo: developer : TTY=pts/1 ; PWD=/home/developer ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+
+Jun 07 09:40:10 server userdel[1400]: delete user 'developer'
+
+Jun 07 09:45:00 server sshd[1023]: Accepted password for admin from 192.168.1.50 port 52000 ssh2
