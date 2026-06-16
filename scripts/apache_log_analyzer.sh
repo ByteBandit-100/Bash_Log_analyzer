@@ -42,8 +42,8 @@ if [[ ${sql_inject_counts} -ge 1 ]]; then
 
 	echo -e "ATTEMPTS:  ${sql_inject_counts}\nRisk Level: $risk"
 fi
-
-echo  "==============================================
-Report generated on: $(date)
+echo "Report Generated : $(pwd)/reports/apache_report.txt"
+echo "==============================================
 Log File : $1 
+Report generated on: $(date)
 ==============================================" >>./reports/apache_report.txt

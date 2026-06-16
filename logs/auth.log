@@ -25,7 +25,6 @@ Jun 07 09:10:30 server sudo: john : TTY=pts/0 ; PWD=/home/john ; USER=root ; COM
 
 Jun 07 09:12:11 Desktop-MK sudo: john : TTY=pts/0 ; PWD=/home/john ; USER=root ; COMMAND=/usr/bin/apt update
 Jun 07 09:12:11 Desktop-MK sudo: pam_unix(sudo:session): session opened for user root by john(uid=1000)
-
 Jun 07 09:12:15 Desktop-MK sudo: pam_unix(sudo:session): session closed for user root
 
 Jun 07 09:12:40 server useradd[1200]: new user: name=developer, UID=1002, GID=1002, home=/home/developer
@@ -51,11 +50,9 @@ Jun 07 11:45:23 Desktop-MK sudo: pam_unix(sudo:session): session opened for user
 Jun 07 11:45:24 Desktop-MK sudo: pam_unix(sudo:session): session closed for user root
 
 Jun 07 13:20:05 Desktop-MK sudo: polo : 3 incorrect password attempts ; TTY=pts/5 ; PWD=/home/polo ; USER=root ; COMMAND=/usr/bin/su
-
 Jun 07 13:22:10 Desktop-MK sudo: pam_unix(sudo:auth): authentication failure; logname=polo uid=1002 euid=0 tty=/dev/pts/5 ruser=polo rhost= user=polo
 
 Jun 07 14:10:45 Desktop-MK su: pam_unix(su:session): session opened for user root by john(uid=1000)
-
 Jun 07 14:15:12 Desktop-MK su: pam_unix(su:session): session closed for user root
 
 Jun 07 14:30:22 server sshd[1234]: Accepted password for root from 192.168.1.50 port 52431 ssh2
@@ -63,7 +60,47 @@ Jun 07 14:30:22 server sshd[1234]: Accepted password for root from 192.168.1.50 
 Jun 07 15:30:22 Desktop-MK su: FAILED SU (to root) john on pts/0
 
 Jun 07 16:05:11 Desktop-MK login: pam_unix(login:session): session opened for user john by LOGIN(uid=0)
-
 Jun 07 16:05:45 Desktop-MK login: pam_unix(login:session): session closed for user john
 
 Jun 07 16:20:18 Desktop-MK sshd[2210]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.50
+
+Jun 07 17:05:10 Desktop-MK sudo: mike : TTY=pts/3 ; PWD=/home/mike ; USER=root ; COMMAND=/usr/bin/journalctl -xe
+Jun 07 17:05:10 Desktop-MK sudo: pam_unix(sudo:session): session opened for user root by mike(uid=1003)
+Jun 07 17:05:18 Desktop-MK sudo: pam_unix(sudo:session): session closed for user root
+
+Jun 07 17:15:22 Desktop-MK sudo: john : TTY=pts/0 ; PWD=/home/john ; USER=root ; COMMAND=/usr/bin/useradd analyst
+Jun 07 17:15:22 Desktop-MK sudo: pam_unix(sudo:session): session opened for user root by john(uid=1000)
+Jun 07 17:15:26 Desktop-MK sudo: pam_unix(sudo:session): session closed for user root
+
+Jun 07 17:25:11 Desktop-MK sudo: mike : 2 incorrect password attempts ; TTY=pts/3 ; PWD=/home/mike ; USER=root ; COMMAND=/usr/bin/systemctl restart ssh
+Jun 07 17:25:15 Desktop-MK sudo: pam_unix(sudo:auth): authentication failure; logname=mike uid=1003 euid=0 tty=/dev/pts/3 ruser=mike rhost= user=mike
+
+Jun 07 18:00:01 Desktop-MK su: pam_unix(su:session): session opened for user root by alice(uid=1001)
+Jun 07 18:08:30 Desktop-MK su: pam_unix(su:session): session closed for user root
+
+Jun 07 18:15:42 Desktop-MK su: pam_unix(su:session): session opened for user root by mike(uid=1003)
+Jun 07 18:25:12 Desktop-MK su: pam_unix(su:session): session closed for user root
+
+Jun 07 18:40:55 Desktop-MK su: FAILED SU (to root) alice on pts/2
+
+Jun 07 19:00:00 Desktop-MK useradd[5001]: new user: name=analyst, UID=1004, GID=1004, home=/home/analyst
+
+Jun 07 19:05:30 Desktop-MK passwd[5002]: password changed for analyst
+
+Jun 07 19:10:00 Desktop-MK usermod[5003]: add 'analyst' to group sudo
+
+Jun 07 19:20:00 Desktop-MK userdel[5004]: delete user 'analyst'
+
+Jun 07 20:00:12 Desktop-MK login: pam_unix(login:session): session opened for user alice by LOGIN(uid=0)
+Jun 07 20:30:00 Desktop-MK login: pam_unix(login:session): session closed for user alice
+
+Jun 07 20:45:33 Desktop-MK login: pam_unix(login:auth): authentication failure; logname= uid=0 euid=0 tty=tty1 ruser= rhost=
+
+Jun 07 21:00:01 Desktop-MK CRON[7001]: (root) CMD (/usr/local/bin/security_check.sh)
+
+Jun 07 21:15:00 Desktop-MK CRON[7002]: (john) CMD (/home/john/scripts/log_cleanup.sh)
+
+Jun 07 21:30:00 Desktop-MK CRON[7003]: (backup) CMD (/opt/backup/run_backup.sh)
+
+Jun 07 21:45:01 Desktop-MK CRON[7004]: pam_unix(cron:session): session opened for user root(uid=0)
+Jun 07 21:45:01 Desktop-MK CRON[7004]: pam_unix(cron:session): session closed for user root

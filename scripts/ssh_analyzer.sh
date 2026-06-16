@@ -13,32 +13,30 @@ echo "Failed login attempts : $failed_pswd_attempts"
 echo "Successfull logins : $successfull_logins"
 echo "Invalid user attempts : $invalid_user_attempts"
 
-echo "------- TOP TARGETS "
-echo "$(
-	{
-		grep "Failed password" "$1" |
-			awk '{
+echo "------------ TOP TARGETS ------------"
+{
+	grep "Failed password" "$1" |
+		awk '{
 for(i=1;i<=NF;i++){
 if($i=="for" && $(i+1)=="invalid" && $(i+2)=="user")
 print $(i+3)
 else if($i=="for" && $(i+1)!="invalid")
 print $(i+1)
 }}'
-		grep "Invalid user" "$1" |
-			awk '{
+	grep "Invalid user" "$1" |
+		awk '{
 for(i=1;i<=NF;i++)
 if($i=="Invalid" && $(i+1)=="user")
 print $(i+2)}'
-	} | sort | uniq -c | sort -nr | awk '{print $2 " : " $1}'
-)"
+} | sort | uniq -c | sort -nr | awk '{print $2 " : " $1}'
 
-echo "------- TOP ATTACKER IPS"
+echo "------- TOP ATTACKER IPS ------------"
 echo -e "IP\t\t| ATTEMPTS"
-echo "$(grep -Ei "invalid user|failed password" "$1" | awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' | sort | uniq -c | sort -nr | awk '{print $2 "\t:  " $1}')"
-echo "------- Root login attempts"
+grep -Ei "invalid user|failed password" "$1" | awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' | sort | uniq -c | sort -nr | awk '{print $2 "\t:  " $1}'
+echo "------- Root login attempts ------------"
 echo "Successfull attempts : $successfull_login_rt"
 echo "Failed attempts : $failed_login_rt"
-echo "------- BRUTE FORCE ALERTS "
+echo "------- BRUTE FORCE ALERTS ------------ "
 echo -e "$(
 	grep "Failed password" "$1" |
 		awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' |
@@ -50,8 +48,8 @@ echo -e "$(
         print "[?] Suspicious: " $2 " (" $1 " failed attempts)" 
 }'
 )"
-
+echo "Report Generated : $(pwd)/reports/ssh_report.txt"
 echo "==============================================
 Report generated on: $(date)
 Log File : $1
-==============================================" >>./reports/ssh_auth_report.txt
+=============================================="
