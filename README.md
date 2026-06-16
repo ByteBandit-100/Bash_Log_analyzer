@@ -7,23 +7,46 @@ In this project i used dummy log files if you want to analyze your own log file 
 
 ### ✅ Completed Modules
 
-#### Apache Log Analyzer
-- Total request counting
-- Successful request detection (HTTP 200)
-- 404 error counting
-- Admin panel scan detection
-- Sensitive file probe detection
-- SQL Injection attempt detection
-- Per-IP request statistics
-- Risk level classification
-- Automated report generation
+### SSH Log Analysis
+ - Total SSH events
+ - Successful login detection
+ - Failed login detection
+ - Invalid user detection
+Top targeted usernames
+ - Top attacker IP addresses
+ - Root login activity
+ - Brute force attack detection
+### System Authentication Analysis
+ - Sudo usage monitoring
+ - SU activity monitoring
+ - Authentication failure detection
+ - User account management tracking
+ - Password change detection
+ - Group modification detection
+ - Cron job activity analysis
+ - Most authenticated users identification
+### Apache Log Analysis
+ - Total requests
+ - Unique visitors
+ - Top client IP addresses
+ - HTTP status code analysis
+ - Most requested resources
+ - Error request detection
+### Report Generation
+ - Generate reports for all logs supported with seperate files
 
 ## 🚧 Pending Modules
 
-* SSH Log Analyzer
-* Linux Auth Log Analyzer
-* Mixed Event Log Analyzer
+* System Log Analyzer
 
+## Technologies Used
+ - Bash Shell Scripting
+ - grep
+ - awk
+ - sort
+ - uniq
+ - wc
+ - tee etc.
 ### Future Enhancements
 - Export reports as CSV, JSON
 - Severity-based alerting
