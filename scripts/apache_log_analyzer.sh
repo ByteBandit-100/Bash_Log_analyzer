@@ -39,6 +39,7 @@ if [[ ${sql_inject_counts} -ge 1 ]]; then
 	for si_ip in ${sql_inject_ips}; do
 		echo "IP : ${si_ip} ATTEMPTS: $(cat $1 | grep -Ei "$sql_matches" | grep "^${si_ip} " | awk '{print $1}' | wc -l) "
 	done
+
 	echo -e "ATTEMPTS:  ${sql_inject_counts}\nRisk Level: $risk"
 fi
 

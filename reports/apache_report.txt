@@ -25,6 +25,6 @@ IP : 45.134.26.8 ATTEMPTS: 3
 ATTEMPTS:  20
 Risk Level: [41mHIGH[0m
 ==============================================
-Report generated on: Mon Jun 15 14:59:40 UTC 2026
+Report generated on: Mon Jun 15 15:31:21 UTC 2026
 Log File : logs/apache_attack.log 
 ==============================================
