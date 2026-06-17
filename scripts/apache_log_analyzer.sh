@@ -18,9 +18,10 @@ echo "404 error counts: ${error404}"
 echo "Admin Scan attempts: ${admin_scans}"
 echo "Sensitive data probes: ${sensitive_scans}"
 echo "--------------------------------------"
+
 for ip in ${ips}; do
-	echo -e "IP : ${ip}\tRequests : $(cat $1 | grep "^${ip} " | wc -l) "
-done
+    echo "$(grep -c "^${ip} " "$1") IP : ${ip}"
+done | sort -nr | awk '{print $2 " " $3 " " $4 "\tREQUESTS : " $1}'
 echo "--------------------------------------"
 if [[ ${sql_inject_counts} -ge 1 ]]; then
 
@@ -37,8 +38,9 @@ if [[ ${sql_inject_counts} -ge 1 ]]; then
 	echo "*** SQL Injection Attempts Detected!"
 	echo "------- SUMMARY ------"
 	for si_ip in ${sql_inject_ips}; do
-		echo "IP : ${si_ip} ATTEMPTS: $(cat $1 | grep -Ei "$sql_matches" | grep "^${si_ip} " | awk '{print $1}' | wc -l) "
-	done
+    count=$(grep -Ei "$sql_matches" "$1" | grep "^${si_ip} " | awk '{print $1}' | wc -l)
+    echo -e "$count $si_ip"
+done | sort -nr | awk '{print "IP : " $2 " \tATTEMPTS : " $1 }'
 
 	echo -e "ATTEMPTS:  ${sql_inject_counts}\nRisk Level: $risk"
 fi

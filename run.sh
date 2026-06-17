@@ -1,14 +1,12 @@
 #!/bin/bash
+if [[ $# -ne 1 ]]; then
+	echo "Usage: $0 <logfile> or </path/logfile>"
+	exit 1
+fi
 echo -e "\e[1;33m================================================"
 echo -e "\t\tBASH LOG ANALYZER	"
 echo "================================================"
 echo -en "\e[0m"
-
-if [[ $# -ne 1 ]]; then
-	echo "Usage: $0 <logfile> or </path/logfile>"
-	echo -e "\e[1;33m================================================\e[0m"
-	exit 1
-fi
 
 if [[ ! -f "$1" ]]; then
 	echo "FILE NOT FOUND :<"
