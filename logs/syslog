@@ -1,0 +1,64 @@
+Jun 17 08:00:01 server systemd[1]: Started Daily Cleanup Service.
+Jun 17 08:00:05 server cron[1201]: (root) CMD (/usr/local/bin/backup.sh)
+
+Jun 17 08:05:12 server NetworkManager[811]: WARNING: Connection unstable on eth0
+Jun 17 08:05:30 server kernel: WARNING: CPU temperature exceeds threshold
+
+Jun 17 08:10:02 server apache2[1450]: ERROR: Failed to open configuration file
+Jun 17 08:10:05 server apache2[1450]: ERROR: Service startup failed
+
+Jun 17 08:12:15 server mysql[1560]: ERROR: Unable to connect to database
+Jun 17 08:12:20 server mysql[1560]: ERROR: Connection timeout
+
+Jun 17 08:15:01 server kernel: Disk I/O error on device sda
+Jun 17 08:15:08 server kernel: ERROR: Disk read failure
+
+Jun 17 08:18:11 server systemd[1]: apache2.service: Failed with result 'exit-code'
+Jun 17 08:18:12 server systemd[1]: Failed to start apache2.service
+
+Jun 17 08:20:30 server systemd[1]: mysql.service: Failed with result 'exit-code'
+Jun 17 08:20:31 server systemd[1]: Failed to start mysql.service
+
+Jun 17 08:25:40 server backup[1711]: ERROR: Backup operation failed
+Jun 17 08:25:41 server systemd[1]: backup.service: Failed
+
+Jun 17 08:30:02 server NetworkManager[811]: ERROR: DNS resolution failure
+Jun 17 08:30:04 server NetworkManager[811]: Connection timeout
+
+Jun 17 08:35:15 server kernel: Out of memory: Kill process 1982 (python)
+
+Jun 17 08:40:01 server systemd[1]: WARNING: Delayed service response
+Jun 17 08:40:20 server systemd[1]: WARNING: Service dependency issue detected
+
+Jun 17 08:45:33 server app[2020]: Permission denied while accessing /etc/shadow
+Jun 17 08:45:40 server app[2020]: Permission denied
+
+Jun 17 08:50:15 server login[2101]: Authentication failure for user admin
+Jun 17 08:50:25 server login[2102]: Authentication failure for user root
+
+Jun 17 08:55:10 server kernel: WARNING: Network interface eth0 reset
+
+Jun 17 09:00:00 server systemd[1]: System reboot initiated
+Jun 17 09:00:30 server kernel: Linux version 6.8.0 booting
+Jun 17 09:00:45 server systemd[1]: Reached target Multi-User System
+
+Jun 17 09:10:05 server cron[2201]: (root) CMD (/usr/bin/logrotate)
+
+Jun 17 09:15:10 server apache2[2250]: Started Apache HTTP Server
+Jun 17 09:15:20 server mysql[2260]: Started MySQL Community Server
+
+Jun 17 09:20:11 server NetworkManager[811]: Network connectivity established
+
+Jun 17 09:25:01 server systemd[1]: System reboot initiated
+Jun 17 09:25:20 server kernel: Linux version 6.8.0 booting
+Jun 17 09:25:45 server systemd[1]: Reached target Multi-User System
+
+Jun 17 09:30:01 server cron[2301]: (root) CMD (/usr/local/bin/security_scan.sh)
+
+Jun 17 09:35:12 server kernel: WARNING: High memory usage detected
+Jun 17 09:35:30 server systemd[1]: WARNING: Service restart threshold exceeded
+
+Jun 17 09:40:01 server app[2401]: ERROR: Unexpected application crash
+Jun 17 09:40:15 server app[2401]: ERROR: Unable to recover session
+
+Jun 17 09:45:00 server systemd[1]: Started User Session Service.

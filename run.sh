@@ -29,17 +29,23 @@ elif [[ "$1" == *"auth.log"* || "$1" == *"ssh"* || "$1" == *"secure"* || $1 == *
 		echo " "
 
 	else
-		echo "-------- Most Authenticated users[SSH/SUDO/SU] --------
-	$({
-			grep -E "Accepted password|Accepted publickey" "$1" |
-				awk '{for(i=1;i<=NF;i++)if($i=="for")print $(i+1)}'
-			grep "sudo:.*session opened" "$1" |
-				awk -F'by ' '{print $2}' |
-				awk -F'\\(' '{print $1}'
-			grep "su:.*session opened" "$1" | awk -F'by ' '{print $2}' | awk -F'\\(' '{print $1}'
-		} | sort | uniq -c | sort -nr | awk '{print $2 " : " $1}')" | tee -a ./reports/ssh_report.txt
+		echo -e "\n- Most Authenticated users[SSH/SUDO/SU] -" | tee -a ./reports/ssh_report.txt
+{
+    grep -E "Accepted password|Accepted publickey" "$1" |
+        awk '{for(i=1;i<=NF;i++) if($i=="for") print $(i+1)}'
+    grep "sudo:.*session opened" "$1" |
+        awk -F'by ' '{print $2}' | awk -F'\\(' '{print $1}'
+    grep "su:.*session opened" "$1" |
+        awk -F'by ' '{print $2}' | awk -F'\\(' '{print $1}'
+} | sort | uniq -c | sort -nr | awk '{print $2 " : " $1}' | sed 's/^ *//' | tee -a ./reports/ssh_report.txt
 	fi
+elif [[ "$1" == *"syslog"* ]]; then
+	./scripts/syslog_analyzer.sh "$1" | tee ./reports/syslog_report.txt
 else
 	echo "Unsupported log type"
 fi
 echo -e "\e[1;33m================================================\e[0m"
+
+
+# Owner
+# Github : ByteBandit-100

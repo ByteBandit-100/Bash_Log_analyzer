@@ -11,7 +11,8 @@ ips=$(awk '{print $1}' "$1" | sort | uniq)
 sql_matches="union|select|or[[:space:]]|or\+|and[[:space:]]|and\+|database\(\)|version\(\)|information_schema"
 sql_inject_counts=$(cat $1 | grep -Ei "$sql_matches" | wc -l)
 sql_inject_ips=$(cat $1 | grep -Ei "$sql_matches" | awk '{print $1}' | sort | uniq)
-echo "******** APACHE FINDINGS ********"
+echo "*********** APACHE FINDINGS **********"
+echo -e "[+] Log file : $(realpath "$1")"
 echo "Total Requests: ${total_requests}"
 echo "Successfull Requests: ${success_requests} "
 echo "404 error counts: ${error404}"
@@ -44,8 +45,7 @@ done | sort -nr | awk '{print "IP : " $2 " \tATTEMPTS : " $1 }'
 
 	echo -e "ATTEMPTS:  ${sql_inject_counts}\nRisk Level: $risk"
 fi
-echo "Report Generated : $(pwd)/reports/apache_report.txt"
 echo "==============================================
-Log File : $1 
+Report Generated : $(pwd)/reports/apache_report.txt
 Report generated on: $(date)
-==============================================" >>./reports/apache_report.txt
+==============================================" 
