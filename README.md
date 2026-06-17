@@ -3,10 +3,7 @@
 A lightweight SOC-style log analysis tool built with Bash for detecting suspicious activity, generating security findings, and creating reports from log files.
 
 In this project i used dummy log files if you want to analyze your own log file than just give your log path along with file so it can easily dectect the file.
-## 📌 Project Status
-
-### ✅ Completed Modules
-
+##
 ### SSH Log Analysis
  - Total SSH events
  - Successful login detection
@@ -32,17 +29,24 @@ Top targeted usernames
  - HTTP status code analysis
  - Most requested resources
  - Error request detection
+### Syslog Analysis
+ - Total log entries
+ - Unique service count
+ - Top active services
+ - Error detection
+ - Warning detection
+ - Service failure analysis
+ - KERNEL events
+ - System reboot detection
+
 ### Report Generation
  - Generate reports for all logs supported with seperate files
 
-## 🚧 Pending Modules
-
-* System Log Analyzer
-
-## Technologies Used
+## 💻 Technologies Used
  - Bash Shell Scripting
  - grep
  - awk
+ - sed
  - sort
  - uniq
  - wc
